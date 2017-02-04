@@ -1,0 +1,23 @@
+{
+  "name": "avoid-the-meters",
+  "version": "1.0.0",
+  "description": "Resource to avoid parking meters in Oakland",
+  "main": "index.js",
+  "repository": "https://github.com/nodatall/avoid-the-meters",
+  "author": "Sylvan Swierkosz <sswierkosz@gmail.com>, Stephan Weber <sdweber422@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-class-properties": "^6.22.0",
+    "babel-preset-env": "^1.1.8",
+    "babel-preset-react": "^6.22.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "webpack": "^2.2.1"
+  },
+  "scripts": {
+    "webpack": "webpack --colors --progress -w",
+    "start": "node run webpack & open public/index.html"
+  }
+}
