@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import scriptLoader from 'react-async-script-loader'
+var Config = require('Config')
 
 export default class GoogleMap extends Component {
 
   componentDidMount() {
     window.initMap = this.initMap
-    this.insertScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyBH13poPYygIF6zKN0nol0czm5SFqWNXuY&callback=initMap')
+    this.insertScript(`https://maps.googleapis.com/maps/api/js?key=${Config.google_api_key}&callback=initMap`)
   }
 
   insertScript( src ) {
@@ -48,6 +48,7 @@ export default class GoogleMap extends Component {
   }
 
   render(){
+
     return(
       <div className="googleMap-mapContainer" ref="map"></div>
     )

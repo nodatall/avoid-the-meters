@@ -3,9 +3,10 @@ import GoogleMap from './GoogleMap'
 
 export default class App extends Component {
   render() {
-    return <div>
-      <div>Something amazing</div>
-      <GoogleMap />
+    return (
+      <div>
+        <GoogleMap />
       </div>
+    )
   }
 }
