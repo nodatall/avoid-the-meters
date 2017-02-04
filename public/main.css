@@ -1,2 +1,4 @@
-div {
-  color: green; }
+.googleMap-mapContainer {
+  height: 600px;
+  width: 800px;
+  margin: auto; }
