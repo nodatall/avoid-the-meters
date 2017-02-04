@@ -30,24 +30,3 @@ $ yarn data
 $ yarn start
 ```
 * Navigate to http://localhost:3001 in your browser
-
-* ###Show all meters on map
-  * hook into oakland API
-  * hook into google maps API
-    * display map in Front-End
-    * input geo-data and get address
-
-* ###Front-End
-  * Big map in middle
-  * Show/hide density colors
-  * Show/hide meters
-
-
-* ###Features
-  * Enter an address and get meters within a certain distance
-  * Color streets by density of parking meters
-    * Green is no meters
-    * Gradient red-orange-yellow-red
-
-* ###Stretch
-  * Potholes data
