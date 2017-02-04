@@ -12,13 +12,15 @@
     "babel-plugin-transform-class-properties": "^6.22.0",
     "babel-preset-env": "^1.1.8",
     "babel-preset-react": "^6.22.0",
+    "node-sass": "^4.5.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "webpack": "^2.2.1"
   },
   "scripts": {
     "webpack": "webpack --colors --progress -w",
-    "start": "webpack & open public/index.html"
+    "sass":"node-sass src/main.sass public/main.css -w",
+    "start": "npm run webpack & npm run sass & open public/index.html"
   },
   "devDependencies": {
     "dotenv": "^4.0.0"
