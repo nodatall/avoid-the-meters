@@ -29,4 +29,3 @@ $ yarn data
 ```
 $ yarn start
 ```
-* Navigate to http://localhost:3001 in your browser
