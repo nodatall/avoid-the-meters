@@ -19,5 +19,8 @@
   "scripts": {
     "webpack": "webpack --colors --progress -w",
     "start": "webpack & open public/index.html"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0"
   }
 }

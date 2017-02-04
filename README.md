@@ -1,8 +1,18 @@
 ### Avoid parking meters
 
 ###### Run our App
-* clone [repo](https://github.com/nodatall/avoid-the-meters)
+* clone [repo](https://github.com/nodatall/avoid-the-meters) into local folder
 * yarn (or npm i if you are behind the times)
+* Log into a google account
+* Get an Google Maps API key [here](https://developers.google.com/maps/documentation/roads/get-api-key)
+* Click 'Get a key' under API Keys
+* In popup, create a new project called avoid-the-meters
+* Copy the API key
+* Create a .env file in root directory
+* Paste in this code:
+`
+GOOGLE_API_KEY=YOUR API KEY
+`
 * yarn start
 
 * ###Show all meters on map
