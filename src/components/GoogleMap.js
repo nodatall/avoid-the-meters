@@ -2,7 +2,19 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 var Config = require('Config')
 
+import shit from '../dataServices/meterData/data.js'
+
 export default class GoogleMap extends Component {
+  constructor() {
+    super()
+    this.state = {
+      parkingMeters: {}
+    }
+  }
+
+  componentWillMount() {
+    console.log('shit:', shit)
+  }
 
   componentDidMount() {
     window.initMap = this.initMap
@@ -42,6 +54,11 @@ export default class GoogleMap extends Component {
       center: {lat: 37.801327, lng: -122.274156},
       zoom: 15,
       styles: mapStyle
+    })
+
+    const marker = new google.maps.Marker({
+      position: {lat: 37.801327, lng: -122.274156},
+      map: map
     })
 
 
