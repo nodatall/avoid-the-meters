@@ -11,10 +11,11 @@
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-class-properties": "^6.22.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-env": "^1.1.8",
     "babel-preset-react": "^6.22.0",
+    "dotenv": "^4.0.0",
     "fast-csv": "^2.3.1",
-    "http-server": "^0.9.0",
     "node-sass": "^4.5.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -23,11 +24,7 @@
   "scripts": {
     "webpack": "webpack --colors --progress -w",
     "sass": "node-sass src/main.sass public/main.css -w",
-    "server": "node_modules/.bin/http-server -p 3001",
-    "start": "npm run webpack & npm run sass & npm run server",
+    "start": "npm run webpack & npm run sass & open public/index.html",
     "data": "babel-node src/dataServices/commands.js"
-  },
-  "devDependencies": {
-    "dotenv": "^4.0.0"
   }
 }

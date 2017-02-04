@@ -20,12 +20,14 @@ const parseMeterData = () => {
           let meterData = {
             meterId: meter[2],
             address: meter[3],
-            coordinates: meter[5] + ', ' + meter[6]
+            latitude: meter[5],
+            longitude: meter[6]
           }
           metersArray.push(meterData)
         }
       })
       metersArray.shift()
+
       const dataPath = path.join( __dirname, '/meterData/data.js')
       fs.writeFile(dataPath, `export default ` + JSON.stringify(metersArray), 'utf-8', error => {
         if ( error ) console.log('Failed to write data file to to /meterData/data.js')
