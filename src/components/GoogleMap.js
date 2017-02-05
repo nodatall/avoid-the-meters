@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import Button from './Button'
 import meterData from '../dataServices/meterData/data'
+import mapStyle from './GoogleMapStyle'
 var Config = require('Config')
 
 
@@ -32,52 +33,26 @@ export default class GoogleMap extends Component {
   }
 
   initMap = () => {
-
-    let mapStyle = [{
-      'featureType': 'all',
-      'elementType': 'all',
-      'stylers': [{'visibility': 'on'}]
-    },
-    {
-      'featureType': 'landscape',
-      'elementType': 'geometry',
-      'stylers': [{'visibility': 'on'}, {'color': '#fcfcfc'}]
-    }, {
-      'featureType': 'water',
-      'elementType': 'labels',
-      'stylers': [{'visibility': 'off'}]
-    }, {
-      'featureType': 'water',
-      'elementType': 'geometry',
-      'stylers': [{'visibility': 'on'}, {'hue': '#5f94ff'}, {'lightness': 60}]
-    }]
-
     let map = new google.maps.Map(this.refs.map, {
       center: {lat: 37.801327, lng: -122.274156},
       zoom: 15,
       styles: mapStyle
-    })
-
-    const meterIcon = 'tinyMeter.png'
-    let meters = []
+    }),
+    metersArray = []
 
     this.state.meterData.forEach( meter => {
       let marker = new google.maps.Marker({
         position: {lat: Number(meter.latitude), lng: Number(meter.longitude)},
         map: map,
-        icon: meterIcon
+        icon: 'tinyMeter.png'
       })
-      meters.push(marker)
+      metersArray.push(marker)
     })
 
-    this.setState({
-      metersArray: meters,
-      map
-    })
-
+    this.setState({ metersArray, map })
   }
 
-  addMarkersToMap = ( map ) => {
+  attachMarkersToMap = ( map ) => {
     const markers = this.state.metersArray
     for (let index = 0; index < markers.length; index++) {
       markers[index].setMap(map)
@@ -86,32 +61,37 @@ export default class GoogleMap extends Component {
 
   toggleMeters = () => {
     if ( this.state.metersVisible ) {
-      this.addMarkersToMap( null )
-      this.toggleVisibility()
+      this.attachMarkersToMap( null )
+      this.toggleMeterVisibility()
     } else {
-      this.addMarkersToMap( this.state.map )
-      this.toggleVisibility()
+      this.attachMarkersToMap( this.state.map )
+      this.toggleMeterVisibility()
     }
   }
 
-  toggleVisibility = () => {
+  toggleMeterVisibility = () => {
     this.setState({
       metersVisible: !this.state.metersVisible
     })
   }
 
-  render(){
-    const buttonContent = this.state.metersVisible ? 'Hide Meters' : 'Show Meters'
-
+  hideHeader = () => {
     window.setTimeout( () => {
       this.setState({
         headingVisibility: 'hidden'
       })
-    }, 3000)
+    }, 2500)
+  }
+
+  render(){
+    this.hideHeader()
+    const buttonContent = this.state.metersVisible ? 'Hide Meters' : 'Show Meters'
 
     return(
       <div className="appContainer">
-        <h1 className={`heading-${this.state.headingVisibility}`} >Oakland Parking Meter Map</h1>
+        <h1 className={`heading-${this.state.headingVisibility}`} >
+          Oakland Parking Meter Map
+        </h1>
         <div className="googleMap-mapContainer" ref="map"></div>
         <div className="buttons-container">
           <Button onClick={this.toggleMeters} >
