@@ -88,12 +88,12 @@ export default class GoogleMap extends Component {
     const buttonContent = this.state.metersVisible ? 'Hide Meters' : 'Show Meters'
 
     return(
-      <div className="appContainer">
+      <div className="googleMap-appContainer">
         <h1 className={`heading-${this.state.headingVisibility}`} >
           Oakland Parking Meter Map
         </h1>
         <div className="googleMap-mapContainer" ref="map"></div>
-        <div className="buttons-container">
+        <div className="googleMap-buttons-container">
           <Button onClick={this.toggleMeters} >
             {buttonContent}
           </Button>
